@@ -2603,6 +2603,8 @@ class ModuleNode(Nodes.Node, Nodes.BlockNode):
         code.putln("static PyModuleDef_Slot %s[] = {" % Naming.pymoduledef_slots_cname)
         code.putln("{Py_mod_create, (void*)%s}," % Naming.pymodule_create_func_cname)
         code.putln("{Py_mod_exec, (void*)%s}," % exec_func_cname)
+        #Flag for cython generated module
+        code.putln("{Py_mod_cython, NULL},")
         code.putln("{0, NULL}")
         code.putln("};")
         code.putln("#endif")
